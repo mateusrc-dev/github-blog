@@ -1,9 +1,19 @@
-import { CardContainer } from "./styles";
+import { CardContainer, CardHeader } from "./styles";
 
-export function Card() {
+interface CardProps {
+  title: string;
+  description: string;
+  date: string;
+}
+
+export function Card({ title, description, date }: CardProps) {
   return (
     <CardContainer>
-      <h1>Card</h1>
+      <CardHeader>
+        <h1>{title}</h1>
+        <span>{date}</span>
+      </CardHeader>
+      <p>{description}</p>
     </CardContainer>
   );
 }
