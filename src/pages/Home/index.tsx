@@ -24,7 +24,7 @@ export function Home() {
             <h2>Mateus Carvalho</h2>
             <Link content={"GITHUB"} />
           </div>
-          <p>qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr </p>
+          <p>qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr sfhkjdshf ksfh ksdhf ksdhf dd d dfsdfdf dfdf</p>
           <div className="detailsIcons">
             <DetailsIcons>
               <FontAwesomeIcon icon={faGithub} className="svg" />
@@ -54,6 +54,38 @@ export function Home() {
           }
           date="há 2 horas"
           id={1}
+        />
+        <Card
+          title={"qualquer coisa sauhsaush usahsua"}
+          description={
+            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
+          }
+          date="há 2 horas"
+          id={2}
+        />
+        <Card
+          title={"qualquer coisa sauhsaush usahsua"}
+          description={
+            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
+          }
+          date="há 2 horas"
+          id={3}
+        />
+        <Card
+          title={"qualquer coisa sauhsaush usahsua"}
+          description={
+            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
+          }
+          date="há 2 horas"
+          id={4}
+        />
+        <Card
+          title={"qualquer coisa sauhsaush usahsua"}
+          description={
+            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
+          }
+          date="há 2 horas"
+          id={5}
         />
       </CardsContainer>
     </HomeContainer>

@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+  width: 26rem;
+  height: 16.25rem;
+`
+
 export const CardContainer = styled.div`
   width: 26rem;
   height: 16.25rem;
