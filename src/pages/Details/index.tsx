@@ -1,4 +1,3 @@
-
 import { DetailsContainer } from "./styles"
 
 export function Details() {

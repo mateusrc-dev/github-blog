@@ -9,12 +9,17 @@ export const CardContainer = styled.div`
   flex-direction: column;
   gap: 1.25rem;
   padding: 2rem;
+  border: 2px solid transparent;
+  cursor: pointer;
   p {
     display: -webkit-box;
     text-overflow: ellipsis;
     overflow: hidden;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+  }
+  &:hover {
+    border-color: ${props => props.theme['base-border']};
   }
 `;
 

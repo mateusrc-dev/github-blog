@@ -25,4 +25,9 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.6;
     font-size: 1rem;
   }
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme['base-text']};
+  }
 `
