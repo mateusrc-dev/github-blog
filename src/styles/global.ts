@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body, input, button {
     font-family: Nunito, sans-serif;
+    color: ${props => props.theme['base-text']};
     font-weight: 400;
     line-height: 1.6;
     font-size: 1rem;
