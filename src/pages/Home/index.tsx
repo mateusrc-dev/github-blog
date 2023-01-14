@@ -18,6 +18,10 @@ export function Home() {
             <FontAwesomeIcon icon={faGithub} className="svgGit"/>
             <span>shdasudhas</span>
             </div>
+            <div className="github">
+            <FontAwesomeIcon icon={faGithub} className="svgGit"/>
+            <span>shdasudhas</span>
+            </div>
           </div>
         </div>
       </div>
