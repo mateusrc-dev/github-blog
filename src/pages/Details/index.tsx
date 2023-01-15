@@ -1,4 +1,9 @@
-import { DetailsContainer, DetailsPostContainer, DetailsIcons, PostContainer } from "./styles";
+import {
+  DetailsContainer,
+  DetailsPostContainer,
+  DetailsIcons,
+  PostContainer,
+} from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -8,8 +13,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "../../components/Link";
 import { NavLink } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { coldarkCold } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { useState } from "react";
 
 export function Details() {
+  const [input, setInput] = useState("# oie asdashdskdhaskldhaklsh kdh klshd kahd __oie__ ajshdsajk lskajdslkd d");
   return (
     <DetailsContainer>
       <DetailsPostContainer>
@@ -40,8 +51,30 @@ export function Details() {
           </div>
         </main>
       </DetailsPostContainer>
+      <textarea onChange={e => setInput(e.target.value)} />
       <PostContainer>
-        adsfhkdjhf ksdhf klsjdhf lksjhf lksdjhf lskjhf lksjhf lskjdfh lskjhf lskjhflk hf kshlkfhslk hkshf lkshdf lkshf lkjadsjfh lksdjfh lskhf lksdhf lkshfkl sjhkfl hslkdfh klsdfh klsfh lkshf
+        <ReactMarkdown
+          children={input}
+          remarkPlugins={[remarkGfm]}
+          components={{
+            code({node, inline, className, children, ...props}: any) {
+              const match = /language-(\w+)/.exec(className || '')
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  children={String(children).replace(/\n$/, '')}
+                  style={coldarkCold}
+                  language={match[1]}
+                  PreTag="div"
+                  {...props}
+                />
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            }
+          }}
+        />
       </PostContainer>
     </DetailsContainer>
   );
