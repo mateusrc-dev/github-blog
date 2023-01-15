@@ -31,6 +31,7 @@ export const CardContainer = styled.div`
 export const CardHeader = styled.header`
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 1rem;
   h1 {
     font-weight: 700;

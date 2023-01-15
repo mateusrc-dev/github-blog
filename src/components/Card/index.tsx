@@ -12,7 +12,6 @@ interface CardProps {
 }
 
 export function Card({ title, description, date, id }: CardProps) {
-  console.log(date);
   return (
     <Container>
       <NavLink to={`/details/${id}`}>

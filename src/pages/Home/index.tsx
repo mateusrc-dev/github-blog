@@ -29,16 +29,9 @@ interface postsProps {
 }
 
 export function Home() {
-  const [user, setUser] = useState<userProps>({
-    name: "",
-    avatar_url: "",
-    bio: "",
-    login: "",
-    company: "",
-    followers: "",
-  });
+  const [user, setUser] = useState<userProps>({} as userProps);
   const [posts, setPosts] = useState<postsProps[]>([]);
-  console.log(posts)
+  const [search, setSearch] = useState("")
   useEffect(() => {
     async function UserData() {
       const response = await fetch("https://api.github.com/users/mateusrc-dev");
@@ -50,13 +43,18 @@ export function Home() {
   useEffect(() => {
     async function Posts() {
       const response = await fetch(
-        `https://api.github.com/search/issues?q=${""}repo:mateusrc-dev/github-blog`
+        `https://api.github.com/search/issues?q=${search}repo:mateusrc-dev/github-blog`
       );
       const data = await response.json();
       setPosts(data.items);
     }
     Posts();
-  }, []);
+  }, [search]);
+
+  function updateSearch(data: string) {
+    setSearch(data)
+  }
+
   return (
     <HomeContainer>
       <DetailsUserContainer>
@@ -87,7 +85,7 @@ export function Home() {
         <h1>Publicações</h1>
         <span>{posts.length} publicações</span>
       </div>
-      <Input />
+      <Input updateSearch={updateSearch} />
       <CardsContainer>
         {posts.map((post) => (
           <Card
