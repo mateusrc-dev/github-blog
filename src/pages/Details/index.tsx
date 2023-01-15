@@ -41,7 +41,6 @@ export function Details() {
     comments: "",
     user: { login: "" },
   });
-  console.log(post);
   useEffect(() => {
     async function PostData() {
       const response = await fetch(
