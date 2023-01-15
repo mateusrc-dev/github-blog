@@ -16,7 +16,7 @@ export const CardContainer = styled.div`
   padding: 2rem;
   border: 2px solid transparent;
   cursor: pointer;
-  p {
+  .markDown {
     display: -webkit-box;
     text-overflow: ellipsis;
     overflow: hidden;

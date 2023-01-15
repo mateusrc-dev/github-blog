@@ -22,9 +22,10 @@ interface userProps {
 }
 interface postsProps {
   title: string;
-  updated_at: string;
+  updated_at: Date;
   body: string;
   id: number;
+  number: number;
 }
 
 export function Home() {
@@ -37,7 +38,7 @@ export function Home() {
     followers: "",
   });
   const [posts, setPosts] = useState<postsProps[]>([]);
-  console.log(posts);
+  console.log(posts)
   useEffect(() => {
     async function UserData() {
       const response = await fetch("https://api.github.com/users/mateusrc-dev");
@@ -77,23 +78,24 @@ export function Home() {
             </DetailsIcons>
             <DetailsIcons>
               <FontAwesomeIcon icon={faUserGroup} className="svg" />
-              <span>{user.followers}</span>
+              <span>{user.followers} seguidores</span>
             </DetailsIcons>
           </div>
         </div>
       </DetailsUserContainer>
       <div className="publications">
         <h1>Publicações</h1>
-        <span>6 publicações</span>
+        <span>{posts.length} publicações</span>
       </div>
       <Input />
       <CardsContainer>
         {posts.map((post) => (
           <Card
+            key={String(post.id)}
             title={post.title}
             description={post.body}
             date={post.updated_at}
-            id={post.id}
+            id={post.number}
           />
         ))}
       </CardsContainer>
