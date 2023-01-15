@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const InputContainer = styled.header`
+export const InputContainer = styled.form`
   input {
     padding: 0.75rem 1rem;
     gap: 0.5rem;
@@ -11,6 +11,14 @@ export const InputContainer = styled.header`
     border-radius: 6px;
     &::placeholder {
       color: ${props => props.theme['base-label']};
+    }
+    &:not(:disabled):hover {
+      background: ${props => props.theme['base-border-input']};
+      transition: background 0.5s;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      filter: brightness(0.7);
     }
   }
 `;

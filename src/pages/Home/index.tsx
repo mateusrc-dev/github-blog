@@ -10,33 +10,74 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faBuilding, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+
+interface userProps {
+  name: string;
+  avatar_url: string;
+  bio: string;
+  followers: string;
+  company: string;
+  login: string;
+}
+interface postsProps {
+  title: string;
+  updated_at: string;
+  body: string;
+  id: number;
+}
 
 export function Home() {
+  const [user, setUser] = useState<userProps>({
+    name: "",
+    avatar_url: "",
+    bio: "",
+    login: "",
+    company: "",
+    followers: "",
+  });
+  const [posts, setPosts] = useState<postsProps[]>([]);
+  console.log(posts);
+  useEffect(() => {
+    async function UserData() {
+      const response = await fetch("https://api.github.com/users/mateusrc-dev");
+      const data = await response.json();
+      setUser(data);
+    }
+    UserData();
+  }, []);
+  useEffect(() => {
+    async function Posts() {
+      const response = await fetch(
+        `https://api.github.com/search/issues?q=${""}repo:mateusrc-dev/github-blog`
+      );
+      const data = await response.json();
+      setPosts(data.items);
+    }
+    Posts();
+  }, []);
   return (
     <HomeContainer>
       <DetailsUserContainer>
-        <img
-          src="https://avatars.githubusercontent.com/u/109779094?v=4"
-          alt="imagem do usuário"
-        />
+        <img src={user.avatar_url} alt="imagem do usuário" />
         <div className="details">
           <div className="header">
-            <h2>Mateus Carvalho</h2>
+            <h2>{user.name}</h2>
             <Link content={"GITHUB"} />
           </div>
-          <p>qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr sfhkjdshf ksfh ksdhf ksdhf dd d dfsdfdf dfdf</p>
+          <p>{user.bio}</p>
           <div className="detailsIcons">
             <DetailsIcons>
               <FontAwesomeIcon icon={faGithub} className="svg" />
-              <span>mateusrc-dev</span>
+              <span>{user.login}</span>
             </DetailsIcons>
             <DetailsIcons>
               <FontAwesomeIcon icon={faBuilding} className="svg" />
-              <span>Freelancer</span>
+              <span>{user.company}</span>
             </DetailsIcons>
             <DetailsIcons>
               <FontAwesomeIcon icon={faUserGroup} className="svg" />
-              <span>11 seguidores</span>
+              <span>{user.followers}</span>
             </DetailsIcons>
           </div>
         </div>
@@ -47,46 +88,14 @@ export function Home() {
       </div>
       <Input />
       <CardsContainer>
-        <Card
-          title={"qualquer coisa sauhsaush usahsua"}
-          description={
-            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
-          }
-          date="há 2 horas"
-          id={1}
-        />
-        <Card
-          title={"qualquer coisa sauhsaush usahsua"}
-          description={
-            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
-          }
-          date="há 2 horas"
-          id={2}
-        />
-        <Card
-          title={"qualquer coisa sauhsaush usahsua"}
-          description={
-            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
-          }
-          date="há 2 horas"
-          id={3}
-        />
-        <Card
-          title={"qualquer coisa sauhsaush usahsua"}
-          description={
-            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
-          }
-          date="há 2 horas"
-          id={4}
-        />
-        <Card
-          title={"qualquer coisa sauhsaush usahsua"}
-          description={
-            "qualquer coisa suahs aus sfdsf fsdfsd dfsdfhau kkkk kk rsrsr srsrs qualquer coisa suahs aushau kkkk kk rsrsr srsrs qualquer coisa suahs aushau  werewr erwer ere rer werer erwer wrwer rwer rw srsrs"
-          }
-          date="há 2 horas"
-          id={5}
-        />
+        {posts.map((post) => (
+          <Card
+            title={post.title}
+            description={post.body}
+            date={post.updated_at}
+            id={post.id}
+          />
+        ))}
       </CardsContainer>
     </HomeContainer>
   );

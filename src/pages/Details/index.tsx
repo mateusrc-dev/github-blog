@@ -51,7 +51,7 @@ export function Details() {
           </div>
         </main>
       </DetailsPostContainer>
-      <textarea onChange={e => setInput(e.target.value)} />
+      {/*<textarea onChange={e => setInput(e.target.value)} />*/}
       <PostContainer>
         <ReactMarkdown
           children={input}
