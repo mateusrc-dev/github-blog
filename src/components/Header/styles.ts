@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import background from "../../assets/backgroundHeader.svg";
+import styled from 'styled-components'
+import background from '../../assets/backgroundHeader.svg'
 
 export const HeaderContainer = styled.header`
   background-image: url(${background});
@@ -25,4 +25,4 @@ export const HeaderContainer = styled.header`
       width: 9.25rem;
     }
   }
-`;
+`

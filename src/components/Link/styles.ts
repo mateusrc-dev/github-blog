@@ -1,8 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const LinkContainer = styled.button`
-  background: none;
-  border: none;
+export const LinkContainer = styled.a`
   cursor: pointer;
   border: 1px solid transparent;
   color: ${(props) => props.theme.blue};
@@ -19,4 +17,4 @@ export const LinkContainer = styled.button`
   &:hover {
     border-bottom-color: ${(props) => props.theme.blue};
   }
-`;
+`

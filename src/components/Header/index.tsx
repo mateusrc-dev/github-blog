@@ -1,6 +1,6 @@
-import { HeaderContainer } from "./styles";
-import logo from "../../assets/logo.svg";
-import title from "../../assets/titleHeader.svg";
+import { HeaderContainer } from './styles'
+import logo from '../../assets/logo.svg'
+import title from '../../assets/titleHeader.svg'
 
 export function Header() {
   return (
@@ -10,5 +10,5 @@ export function Header() {
         <img className="title" src={title} alt="" />
       </div>
     </HeaderContainer>
-  );
+  )
 }

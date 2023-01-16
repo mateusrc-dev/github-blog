@@ -1,7 +1,7 @@
-import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { Details } from "./pages/Details";
-import { DefaultLayout } from "./layouts/DefaultLayout";
+import { Routes, Route } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Details } from './pages/Details'
+import { DefaultLayout } from './layouts/DefaultLayout'
 
 export function Router() {
   return (
@@ -11,5 +11,5 @@ export function Router() {
         <Route path="/details/:id" element={<Details />} />
       </Route>
     </Routes>
-  );
+  )
 }

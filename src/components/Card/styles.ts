@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 26rem;
@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const CardContainer = styled.div`
   width: 26rem;
   height: 16.25rem;
-  background: ${(props) => props.theme["base-post"]};
+  background: ${(props) => props.theme['base-post']};
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -24,9 +24,9 @@ export const CardContainer = styled.div`
     -webkit-box-orient: vertical;
   }
   &:hover {
-    border-color: ${props => props.theme['base-border']};
+    border-color: ${(props) => props.theme['base-border']};
   }
-`;
+`
 
 export const CardHeader = styled.header`
   display: flex;
@@ -36,12 +36,12 @@ export const CardHeader = styled.header`
   h1 {
     font-weight: 700;
     font-size: 1.25rem;
-    color: ${(props) => props.theme["base-title"]};
+    color: ${(props) => props.theme['base-title']};
   }
   span {
     white-space: nowrap;
     margin-top: 0.33rem;
     font-size: 0.875rem;
-    color: ${(props) => props.theme["base-span"]};
+    color: ${(props) => props.theme['base-span']};
   }
-`;
+`
