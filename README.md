@@ -1,4 +1,4 @@
-## Github-blog project
+# Github-blog project
 
 ### Project is part of a ReactJs trail challenge from Ignite/Rocketseat
 
@@ -14,3 +14,6 @@ In this challenge we use HTTP clients to consume Github API to create a personal
 - React Router DOM
 - Library to create Forms (react-hook-form)
 - React-markdown
+
+## deploy of application:
+✔️ https://charming-alfajores-ab49c5.netlify.app/
